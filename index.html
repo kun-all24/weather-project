@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Weather Dashboard</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="weather.css">
+  
+</head>
+<body class="bg-gradient-to-r from-blue-400 to-purple-500 text-white min-h-screen flex items-center justify-center">
+
+  <div class="container mx-auto p-8">
+    <div class="text-center mb-8">
+      <h1 class="text-4xl font-bold">Weather Dashboard</h1>
+    </div>
+    <div class="flex justify-center mb-8 space-x-4">
+      <button onclick="getCurrentLocation()" class="bg-blue-600 text-white px-6 py-3 rounded-full shadow-md hover:bg-blue-700 transition duration-200">Use Current Location</button>
+      <button onclick="showSearchModal()" class="bg-gray-600 text-white px-6 py-3 rounded-full shadow-md hover:bg-gray-700 transition duration-200">Search City</button>
+      <div class="relative">
+        <button onclick="toggleHistory()" class="bg-gray-600 text-white px-6 py-3 rounded-full shadow-md hover:bg-gray-700 transition duration-200">History</button>
+        <ul id="searchHistoryDropdown" class="absolute left-0 right-0 bg-white border border-gray-300 rounded-lg mt-1 hidden z-10 text-black">
+          
+        </ul>
+      </div>
+    </div>
+    <div id="weatherToday" class="bg-white p-8 rounded-lg shadow-lg mb-8 hidden text-gray-800">
+      <h2 class="text-2xl font-bold mb-4" id="cityName">City (Date)</h2>
+      <div class="flex items-center mb-4">
+        <img id="weatherIcon" src="" alt="Weather Icon" class="w-20 h-20 hidden">
+        <div class="ml-4">
+          <p id="temperature" class="text-3xl">--°C</p>
+          <p id="weatherDescription">Description</p>
+        </div>
+      </div>
+      <p id="wind">Wind: -- M/S</p>
+      <p id="humidity">Humidity: --%</p>
+    </div>
+    <div id="forecast" class="grid grid-cols-1 md:grid-cols-5 gap-4 hidden">
+      <!-- Forecast cards will be added here dynamically -->
+    </div>
+  </div>
+
+  <!-- Search Modal -->
+  <div id="searchModal" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center hidden">
+    <div class="bg-white p-8 rounded-lg shadow-lg modal hide text-gray-800 w-full max-w-lg">
+      <h2 class="text-2xl font-bold mb-4">Search City</h2>
+      <div class="relative mb-4">
+        <input type="text" id="cityInput" placeholder="E.g., pune, mumbai," class="border p-3 rounded text-lg w-full focus:ring-blue-500 focus:border-blue-500 expanded-input">
+        <button onclick="searchWeather()" class="bg-blue-600 text-white px-6 py-3 rounded ml-2 hover:bg-blue-700 absolute right-0 top-0 bottom-0">Search</button>
+      </div>
+      <button onclick="closeSearchModal()" class="bg-gray-600 text-white px-6 py-3 rounded-full shadow-md hover:bg-gray-700 transition duration-200">Close</button>
+    </div>
+  </div>
+
+  <script src="weather.js"></script>
+</body>
+</html>

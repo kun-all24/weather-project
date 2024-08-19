@@ -1,0 +1,15 @@
+.modal {
+    transition: transform 0.3s ease-out;
+  }
+  .modal.show {
+    transform: scale(1);
+  }
+  .modal.hide {
+    transform: scale(0);
+  }
+  .dropdown {
+    transition: height 0.3s ease-out;
+  }
+  .expanded-input {
+    width: 100%;
+  }
