@@ -23,7 +23,7 @@ This project is a weather dashboard that displays current weather information an
 1. **Clone the repository:**
 
    
-   git clone 
+   git clone https://github.com/kun-all24/weather-project
    cd KUNAL-PROJECT2
 
 
